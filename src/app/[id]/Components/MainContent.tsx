@@ -5,10 +5,12 @@ import CustomSelect from "../../components/CustomSelect";
 import CustomInput from "../../components/CustomInput";
 import CustomButton from "../../components/CustomButton";
 import BuscarUsuario from "../../components/BuscarUsuario";
-import QuestionModal from "../../components/QuestionModal";
 import ConfirmModal from "../../components/ConfirmModal";
 import ErrorModal from "../../components/ErrorModal";
+import AlertsRow from "../../components/AlertsRow";
+
 import { useDataContext } from "../../context/DataContext";
+
 
 const countryOptions = [
   { value: "", label: "País *" },
@@ -306,6 +308,8 @@ export default function MainContentForm() {
         onClose={handleCloseErrorModal}
         message={errorMessage}
       />
+
+    <AlertsRow />
     </main>
   );
 }

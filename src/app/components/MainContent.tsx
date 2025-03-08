@@ -181,7 +181,6 @@ export default function MainContentTable() {
         </div>
       </section>
 
-      {/* Se utiliza el modal actualizado en lugar del DeleteConfirmModal */}
       <ErrorModal
         isOpen={showDeleteModal}
         onClose={cancelDelete}
