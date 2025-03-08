@@ -1,13 +1,10 @@
 "use client";
 import React, { useState } from "react";
 import Title from "./Title";
-import LogoutModal from "./QuestionModal";
+import QuestionModal from "./QuestionModal";
 import { useRouter } from "next/navigation";
 
-
-
 export default function Sidebar() {
-
   const router = useRouter();
 
   const [showLogoutModal, setShowLogoutModal] = useState(false);
@@ -18,6 +15,7 @@ export default function Sidebar() {
   function handleConfirmLogout() {
     console.log("Sesión cerrada");
     setShowLogoutModal(false);
+    // Aquí puedes agregar la lógica adicional de cierre de sesión
   }
   function handleCancelLogout() {
     setShowLogoutModal(false);
@@ -72,18 +70,22 @@ export default function Sidebar() {
             <Title text="Gestor de Recaudo" />
           </li>
           <li>
-            <button className="w-full rounded-md bg-orange-200 border border-orange-500 py-2 text-black shadow text-sm"
-            onClick={handlePanelClick}>
+            <button
+              className="w-full rounded-md bg-orange-200 border border-orange-500 py-2 text-black shadow text-sm"
+              onClick={handlePanelClick}
+            >
               Identificación de Usuarios
             </button>
           </li>
         </ul>
       </nav>
 
-      <LogoutModal
+      <QuestionModal
         isOpen={showLogoutModal}
         onClose={handleCancelLogout}
         onConfirm={handleConfirmLogout}
+        title="Cerrar sesión"
+        message="¿Seguro que deseas cerrar sesión?"
       />
     </aside>
   );
